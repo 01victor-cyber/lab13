@@ -202,6 +202,25 @@ mod tests {
         let after_two = next_generation(&next_generation(&start));
         assert_eq!(after_two, start);
     }
+#[test]
+fn glider_moves_one_down_one_right_after_four() {
+    let mut grid = load_pattern(3); // 3 loads the glider
+    for _ in 0..4 {
+        grid = next_generation(&grid);
+    }
+    
+    assert_eq!(population(&grid), 5);
+
+    let expected = grid_from(&[
+        (2, 3),
+        (3, 4),
+        (4, 2),
+        (4, 3),
+        (4, 4),
+    ]);
+
+    assert_eq!(grid, expected);
+}
 
     // TODO (student): the glider test (after four generations on an empty grid the
     // population is 5 and the shape has moved one row and one column along its
