@@ -204,7 +204,7 @@ mod tests {
     }
 #[test]
 fn glider_moves_one_down_one_right_after_four() {
-    let mut grid = load_pattern(3); // 3 loads the glider
+    let mut grid = load_pattern(3); 
     for _ in 0..4 {
         grid = next_generation(&grid);
     }
@@ -220,6 +220,14 @@ fn glider_moves_one_down_one_right_after_four() {
     ]);
 
     assert_eq!(grid, expected);
+}
+
+#[test]
+fn blinker_changes_after_one_generation() {
+    let blinker = grid_from(&[(4, 9), (4, 10), (4, 11)]);
+    let next = next_generation(&blinker);
+    let expected = grid_from(&[(3, 10), (4, 10), (5, 10)]);
+    assert_eq!(next, expected);
 }
 
     // TODO (student): the glider test (after four generations on an empty grid the
