@@ -50,7 +50,7 @@ pub fn next_state(alive: bool, neighbors: u8) -> bool {
         _ => false,
     }
 }
-
+#[allow(dead_code)]
 pub fn print_neighbor_counts(grid: &Grid) {
     for r in 0..ROWS {
         for c in 0..COLS {
